@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ram Chidi | IT Support Portfolio</title>
+  <meta name="description" content="Portfolio of Ram Chidi, IT Support Specialist with networking, troubleshooting, and system support experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-xs: clamp(0.75rem, 0.72rem + 0.18vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.84rem + 0.22vw, 1rem);
+      --text-base: clamp(1rem, 0.96rem + 0.24vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.7vw, 1.45rem);
+      --text-xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.35rem);
+      --text-2xl: clamp(2.2rem, 1.4rem + 2.9vw, 4.4rem);
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --font-display: 'Manrope', Arial, sans-serif;
+      --font-body: 'Instrument Sans', Arial, sans-serif;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    :root, [data-theme="light"] {
+      --bg: #f6f7fb;
+      --surface: rgba(255,255,255,0.72);
+      --surface-strong: #ffffff;
+      --text: #0f172a;
+      --muted: #526072;
+      --faint: #77859a;
+      --border: rgba(15, 23, 42, 0.08);
+      --line: rgba(15, 23, 42, 0.11);
+      --primary: #2563eb;
+      --accent: #06b6d4;
+      --chip: rgba(37,99,235,0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f1115;
+      --surface: rgba(255,255,255,0.035);
+      --surface-strong: rgba(255,255,255,0.06);
+      --text: #f6f7fb;
+      --muted: #c8cfdb;
+      --faint: #aab2bf;
+      --border: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.08);
+      --primary: #98bcff;
+      --accent: #72dfe9;
+      --chip: rgba(124,181,255,0.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.035), transparent 26%),
+        radial-gradient(circle at 100% 10%, rgba(255,255,255,0.03), transparent 30%),
+        var(--bg);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+
+    .container {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      z-index: 200;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 2.4rem;
+      height: 2.4rem;
+      display: grid;
+      place-items: center;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .theme-toggle {
+      color: var(--muted);
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      transition: background var(--transition), color var(--transition);
+      border: 1px solid var(--border);
+      background: transparent;
+      min-width: 44px;
+      min-height: 44px;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    main section {
+      padding: clamp(3.5rem, 8vw, 7rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    main section:last-of-type { border-bottom: none; }
+
+    .hero {
+      padding-top: clamp(4rem, 10vw, 8rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+      font-family: var(--font-display);
+    }
+
+    p { margin: 0; color: var(--muted); max-width: 68ch; }
+
+    .hero-copy {
+      max-width: 56ch;
+    }
+
+    .hello-title {
+      font-size: clamp(3rem, 9vw, 7rem);
+      max-width: none;
+      margin-top: 0.5rem;
+    }
+
+    #hello-rotator {
+      display: inline-block;
+      transition: opacity 180ms ease;
+    }
+
+    .hero-intro {
+      margin-top: 1rem;
+      max-width: 46ch;
+      font-size: clamp(1rem, 1vw + 0.9rem, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+    }
+
+    .hero-aside {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .oval-photo {
+      width: min(100%, 360px);
+      aspect-ratio: 0.82 / 1.05;
+      border-radius: 50% / 42%;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .social-grid a {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .social-grid a:hover {
+      transform: translateY(-2px);
+      background: var(--chip);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--faint);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 1.25rem, 1100px); }
+      .hero-actions,
+      .nav-links { flex-direction: column; align-items: stretch; }
+      .btn,
+      .theme-toggle { justify-content: center; }
+      h1 { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Ram Bahadur Chidi home">
+        <span class="brand-mark">RC</span>
+        <span>Ram Chidi</span>
+      </a>
+
+      <div class="nav-links">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">☀</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal visible">
+          <h1 class="hello-title"><span id="hello-rotator">Hello</span></h1>
+          <p class="hero-intro">I’m Ram Chidi.</p>
+          <p class="hero-intro">I’m currently studying Computer Systems and Networking. I’m interested in technology and enjoy learning new things about computers and how they work.</p>
+          <p class="hero-intro">In my free time, I like watching movies and series, playing games, and spending time online. I also enjoy bicycling and riding, especially when I want to relax.</p>
+          <p class="hero-intro">I like traveling and exploring new places, and I’m interested in photography as well.</p>
+        </div>
+
+        <aside class="hero-aside reveal">
+          <div class="oval-photo">
+            <img src="ram.jpg" alt="Portrait of Ram Bahadur Chidi" width="720" height="860" loading="lazy" class="profile-photo" />
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="reveal">
+          <div class="social-grid" style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; justify-content:center; padding-top:1rem;">
+            <a href="https://www.facebook.com/mgr.ramu30" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.6-1.6h1.7V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H8v3h2.7v8h2.8z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ramchidi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6.5 6.5A1.5 1.5 0 1 1 6.5 3.5a1.5 1.5 0 0 1 0 3zM4.9 20V8.2h3.2V20H4.9zm5.4-11.8h3.1v1.6h.1c.4-.8 1.5-1.8 3.2-1.8 3.4 0 4.1 2.2 4.1 5V20h-3.2v-6.1c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V20h-3.2V8.2z"/></svg>
+            </a>
+            <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>2026 Ram Chidi</p>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const helloRotator = document.getElementById('hello-rotator');
+    const hellos = ['Hello', 'नमस्ते', 'Bonjour'];
+    let helloIndex = 0;
+    if (helloRotator) {
+      setInterval(() => {
+        helloRotator.style.opacity = 0;
+        setTimeout(() => {
+          helloIndex = (helloIndex + 1) % hellos.length;
+          helloRotator.textContent = hellos[helloIndex];
+          helloRotator.style.opacity = 1;
+        }, 180);
+      }, 2200);
+    }
+
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', currentTheme);
+
+    const setThemeIcon = () => {
+      themeToggle.textContent = currentTheme === 'dark' ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    };
+    setThemeIcon();
+
+    themeToggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', currentTheme);
+      setThemeIcon();
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
